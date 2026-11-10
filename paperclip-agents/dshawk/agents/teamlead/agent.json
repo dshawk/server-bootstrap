@@ -1,0 +1,54 @@
+{
+  "name": "Тимлид",
+  "title": "Тимлид",
+  "role": "cto",
+  "sourceAgentId": "2c8de19b-89b6-4c5b-8e2a-3906ffa269ea",
+  "urlKey": "2c8de19b-89b6-4c5b-8e2a-3906ffa269ea",
+  "packageSlug": "agent-5",
+  "reportsTo": "Мастер",
+  "reportsToSourceAgentId": "0167be97-41c1-4e81-884f-3c72a422e251",
+  "adapter": {
+    "type": "cursor",
+    "config": {
+      "model": "auto",
+      "paperclipSkillSync": {
+        "desiredSkills": [
+          "${desiredSkills}",
+          "${desiredSkills}"
+        ]
+      },
+      "instructionsFilePath": "${instructionsFilePath}",
+      "instructionsRootPath": "${instructionsRootPath}",
+      "instructionsEntryFile": "AGENTS.md",
+      "instructionsBundleMode": "managed"
+    }
+  },
+  "runtime": {
+    "heartbeat": {
+      "enabled": false,
+      "cooldownSec": 10,
+      "intervalSec": 300,
+      "wakeOnDemand": true,
+      "maxConcurrentRuns": 1,
+      "skipTimerWhenNoActionableWork": true
+    }
+  },
+  "permissions": {
+    "canCreateAgents": true,
+    "canCreateSkills": true
+  },
+  "desiredSkills": [
+    "paperclipai/paperclip/paperclip",
+    "paperclipai/paperclip/paperclip-converting-plans-to-tasks"
+  ],
+  "skillEntries": [
+    {
+      "name": "paperclipai/paperclip/paperclip",
+      "enabled": null
+    },
+    {
+      "name": "paperclipai/paperclip/paperclip-converting-plans-to-tasks",
+      "enabled": null
+    }
+  ]
+}

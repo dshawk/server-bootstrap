@@ -1,0 +1,21 @@
+[Unit]
+Description=Paperclip control plane
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=paperclip
+Group=paperclip
+WorkingDirectory=/home/paperclip
+Environment=HOME=/home/paperclip
+Environment=PAPERCLIP_NO_BROWSER=1
+Environment=PATH=/home/paperclip/.local/bin:/usr/local/bin:/usr/bin:/bin
+EnvironmentFile=/home/paperclip/paperclip.env
+ExecStart=/usr/bin/npx --yes paperclipai@__PAPERCLIP_VERSION__ run
+Restart=on-failure
+RestartSec=5
+TimeoutStartSec=180
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,56 @@
+{
+  "name": "Мастер",
+  "title": "Руководитель",
+  "role": "ceo",
+  "sourceAgentId": "0167be97-41c1-4e81-884f-3c72a422e251",
+  "urlKey": "0167be97-41c1-4e81-884f-3c72a422e251",
+  "packageSlug": "agent-3",
+  "reportsTo": null,
+  "reportsToSourceAgentId": null,
+  "adapter": {
+    "type": "cursor",
+    "config": {
+      "model": "auto",
+      "graceSec": 15,
+      "timeoutSec": 0,
+      "paperclipSkillSync": {
+        "desiredSkills": [
+          "${desiredSkills}",
+          "${desiredSkills}"
+        ]
+      },
+      "instructionsFilePath": "${instructionsFilePath}",
+      "instructionsRootPath": "${instructionsRootPath}",
+      "instructionsEntryFile": "AGENTS.md",
+      "instructionsBundleMode": "managed"
+    }
+  },
+  "runtime": {
+    "heartbeat": {
+      "enabled": false,
+      "cooldownSec": 10,
+      "intervalSec": 300,
+      "wakeOnDemand": true,
+      "maxConcurrentRuns": 1,
+      "skipTimerWhenNoActionableWork": true
+    }
+  },
+  "permissions": {
+    "canCreateAgents": true,
+    "canCreateSkills": true
+  },
+  "desiredSkills": [
+    "paperclipai/paperclip/paperclip",
+    "paperclipai/paperclip/paperclip-converting-plans-to-tasks"
+  ],
+  "skillEntries": [
+    {
+      "name": "paperclipai/paperclip/paperclip",
+      "enabled": null
+    },
+    {
+      "name": "paperclipai/paperclip/paperclip-converting-plans-to-tasks",
+      "enabled": null
+    }
+  ]
+}

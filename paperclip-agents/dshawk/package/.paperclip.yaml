@@ -1,0 +1,455 @@
+schema: "paperclip/v1"
+agents:
+  agent:
+    role: "engineer"
+    adapter:
+      config:
+        model: "auto"
+      type: "cursor"
+    runtime:
+      heartbeat:
+        intervalSec: 300
+        maxConcurrentRuns: 1
+        skipTimerWhenNoActionableWork: true
+    permissions:
+      canCreateAgents: true
+      canCreateSkills: true
+    permissionGrants:
+      -
+        permissionKey: "agents:configure"
+      -
+        permissionKey: "agents:suggest-changes"
+      -
+        permissionKey: "audit:view_agent_actions"
+      -
+        permissionKey: "inbox:manage"
+        scope:
+          responsibleUserOnly: true
+      -
+        permissionKey: "skills:create"
+      -
+        permissionKey: "skills:suggest-changes"
+      -
+        permissionKey: "tasks:assign"
+      -
+        permissionKey: "tasks:assign_scope"
+        scope:
+          subtreeRootAgentId: "30c3a777-515b-4846-9440-8f1ac7ac4a3e"
+      -
+        permissionKey: "tasks:manage_active_checkouts"
+      -
+        permissionKey: "tools:manage_connections"
+      -
+        permissionKey: "tools:manage_profiles"
+      -
+        permissionKey: "tools:manage_runtime"
+      -
+        permissionKey: "tools:use"
+      -
+        permissionKey: "tools:view_audit"
+    appearance:
+      characterVersion: "cap-v1"
+      paletteId: "flamingo-jade"
+      schemaVersion: 1
+  agent-2:
+    role: "designer"
+    adapter:
+      config:
+        command: "gemini"
+        engine: "cli"
+        model: "gemini-2.5-flash-lite"
+      type: "gemini_local"
+    runtime:
+      heartbeat:
+        intervalSec: 300
+        maxConcurrentRuns: 1
+        skipTimerWhenNoActionableWork: true
+    permissions:
+      canCreateAgents: true
+      canCreateSkills: true
+    permissionGrants:
+      -
+        permissionKey: "agents:configure"
+      -
+        permissionKey: "agents:suggest-changes"
+      -
+        permissionKey: "audit:view_agent_actions"
+      -
+        permissionKey: "inbox:manage"
+        scope:
+          responsibleUserOnly: true
+      -
+        permissionKey: "skills:create"
+      -
+        permissionKey: "skills:suggest-changes"
+      -
+        permissionKey: "tasks:assign"
+      -
+        permissionKey: "tasks:assign_scope"
+        scope:
+          subtreeRootAgentId: "5eaa874c-1d34-4fca-8589-ed79f4b5811f"
+      -
+        permissionKey: "tasks:manage_active_checkouts"
+      -
+        permissionKey: "tools:manage_connections"
+      -
+        permissionKey: "tools:manage_profiles"
+      -
+        permissionKey: "tools:manage_runtime"
+      -
+        permissionKey: "tools:use"
+      -
+        permissionKey: "tools:view_audit"
+    appearance:
+      characterVersion: "cap-v1"
+      paletteId: "tangerine-cobalt"
+      schemaVersion: 1
+    inputs:
+      env:
+        ALL_PROXY:
+          description: "Optional default for ALL_PROXY on agent agent-2"
+          kind: "plain"
+          default: "socks5h://127.0.0.1:40000"
+          requirement: "optional"
+        GEMINI_API_KEY:
+          description: "Optional default for GEMINI_API_KEY on agent agent-2"
+          kind: "secret"
+          default: ""
+          requirement: "optional"
+        GEMINI_MODEL:
+          description: "Optional default for GEMINI_MODEL on agent agent-2"
+          kind: "plain"
+          default: "gemini-2.5-flash-lite"
+          requirement: "optional"
+        HTTP_PROXY:
+          description: "Optional default for HTTP_PROXY on agent agent-2"
+          kind: "plain"
+          default: "http://127.0.0.1:40000"
+          requirement: "optional"
+        HTTPS_PROXY:
+          description: "Optional default for HTTPS_PROXY on agent agent-2"
+          kind: "plain"
+          default: "http://127.0.0.1:40000"
+          requirement: "optional"
+        NO_PROXY:
+          description: "Optional default for NO_PROXY on agent agent-2"
+          kind: "plain"
+          default: "127.0.0.1,localhost,::1"
+          requirement: "optional"
+  agent-3:
+    role: "ceo"
+    adapter:
+      config:
+        model: "auto"
+      type: "cursor"
+    runtime:
+      heartbeat:
+        intervalSec: 300
+        maxConcurrentRuns: 1
+        skipTimerWhenNoActionableWork: true
+    permissions:
+      canCreateAgents: true
+      canCreateSkills: true
+    permissionGrants:
+      -
+        permissionKey: "agents:configure"
+      -
+        permissionKey: "agents:suggest-changes"
+      -
+        permissionKey: "audit:view_agent_actions"
+      -
+        permissionKey: "inbox:manage"
+        scope:
+          responsibleUserOnly: true
+      -
+        permissionKey: "skills:create"
+      -
+        permissionKey: "skills:suggest-changes"
+      -
+        permissionKey: "tasks:assign"
+      -
+        permissionKey: "tasks:assign_scope"
+        scope:
+          subtreeRootAgentId: "0167be97-41c1-4e81-884f-3c72a422e251"
+      -
+        permissionKey: "tasks:manage_active_checkouts"
+      -
+        permissionKey: "tools:manage_connections"
+      -
+        permissionKey: "tools:manage_profiles"
+      -
+        permissionKey: "tools:manage_runtime"
+      -
+        permissionKey: "tools:use"
+      -
+        permissionKey: "tools:view_audit"
+    appearance:
+      characterVersion: "cap-v1"
+      paletteId: "solar-flare"
+      schemaVersion: 1
+  agent-4:
+    role: "engineer"
+    adapter:
+      config:
+        model: "auto"
+      type: "cursor"
+    runtime:
+      heartbeat:
+        intervalSec: 300
+        maxConcurrentRuns: 1
+        skipTimerWhenNoActionableWork: true
+    permissions:
+      canCreateAgents: true
+      canCreateSkills: true
+    permissionGrants:
+      -
+        permissionKey: "agents:configure"
+      -
+        permissionKey: "agents:suggest-changes"
+      -
+        permissionKey: "audit:view_agent_actions"
+      -
+        permissionKey: "inbox:manage"
+        scope:
+          responsibleUserOnly: true
+      -
+        permissionKey: "skills:create"
+      -
+        permissionKey: "skills:suggest-changes"
+      -
+        permissionKey: "tasks:assign"
+      -
+        permissionKey: "tasks:assign_scope"
+        scope:
+          subtreeRootAgentId: "f402f898-ea37-4857-966e-4c65a9aff1d4"
+      -
+        permissionKey: "tasks:manage_active_checkouts"
+      -
+        permissionKey: "tools:manage_connections"
+      -
+        permissionKey: "tools:manage_profiles"
+      -
+        permissionKey: "tools:manage_runtime"
+      -
+        permissionKey: "tools:use"
+      -
+        permissionKey: "tools:view_audit"
+    appearance:
+      characterVersion: "cap-v1"
+      paletteId: "orchid-peach"
+      schemaVersion: 1
+  agent-5:
+    role: "cto"
+    adapter:
+      config:
+        model: "auto"
+      type: "cursor"
+    runtime:
+      heartbeat:
+        intervalSec: 300
+        maxConcurrentRuns: 1
+        skipTimerWhenNoActionableWork: true
+    permissions:
+      canCreateAgents: true
+      canCreateSkills: true
+    permissionGrants:
+      -
+        permissionKey: "agents:configure"
+      -
+        permissionKey: "agents:suggest-changes"
+      -
+        permissionKey: "audit:view_agent_actions"
+      -
+        permissionKey: "inbox:manage"
+        scope:
+          responsibleUserOnly: true
+      -
+        permissionKey: "skills:create"
+      -
+        permissionKey: "skills:suggest-changes"
+      -
+        permissionKey: "tasks:assign"
+      -
+        permissionKey: "tasks:assign_scope"
+        scope:
+          subtreeRootAgentId: "2c8de19b-89b6-4c5b-8e2a-3906ffa269ea"
+      -
+        permissionKey: "tasks:manage_active_checkouts"
+      -
+        permissionKey: "tools:manage_connections"
+      -
+        permissionKey: "tools:manage_profiles"
+      -
+        permissionKey: "tools:manage_runtime"
+      -
+        permissionKey: "tools:use"
+      -
+        permissionKey: "tools:view_audit"
+    appearance:
+      characterVersion: "cap-v1"
+      paletteId: "flamingo-jade"
+      schemaVersion: 1
+  agent-6:
+    role: "engineer"
+    adapter:
+      config:
+        model: "auto"
+      type: "cursor"
+    runtime:
+      heartbeat:
+        intervalSec: 300
+        maxConcurrentRuns: 1
+        skipTimerWhenNoActionableWork: true
+    permissions:
+      canCreateAgents: true
+      canCreateSkills: true
+    permissionGrants:
+      -
+        permissionKey: "agents:configure"
+      -
+        permissionKey: "agents:suggest-changes"
+      -
+        permissionKey: "audit:view_agent_actions"
+      -
+        permissionKey: "inbox:manage"
+        scope:
+          responsibleUserOnly: true
+      -
+        permissionKey: "skills:create"
+      -
+        permissionKey: "skills:suggest-changes"
+      -
+        permissionKey: "tasks:assign"
+      -
+        permissionKey: "tasks:assign_scope"
+        scope:
+          subtreeRootAgentId: "05743486-2143-44cd-a963-ec0629abb030"
+      -
+        permissionKey: "tasks:manage_active_checkouts"
+      -
+        permissionKey: "tools:manage_connections"
+      -
+        permissionKey: "tools:manage_profiles"
+      -
+        permissionKey: "tools:manage_runtime"
+      -
+        permissionKey: "tools:use"
+      -
+        permissionKey: "tools:view_audit"
+    appearance:
+      characterVersion: "cap-v1"
+      paletteId: "orchid-peach"
+      schemaVersion: 1
+  aso:
+    role: "general"
+    adapter:
+      config:
+        model: "auto"
+      type: "cursor"
+    runtime:
+      heartbeat:
+        intervalSec: 300
+        maxConcurrentRuns: 1
+        skipTimerWhenNoActionableWork: true
+    permissions:
+      canCreateAgents: true
+      canCreateSkills: true
+    permissionGrants:
+      -
+        permissionKey: "agents:configure"
+      -
+        permissionKey: "agents:suggest-changes"
+      -
+        permissionKey: "audit:view_agent_actions"
+      -
+        permissionKey: "inbox:manage"
+        scope:
+          responsibleUserOnly: true
+      -
+        permissionKey: "skills:create"
+      -
+        permissionKey: "skills:suggest-changes"
+      -
+        permissionKey: "tasks:assign"
+      -
+        permissionKey: "tasks:assign_scope"
+        scope:
+          subtreeRootAgentId: "0854de49-8e3c-4406-bace-908411f79db4"
+      -
+        permissionKey: "tasks:manage_active_checkouts"
+      -
+        permissionKey: "tools:manage_connections"
+      -
+        permissionKey: "tools:manage_profiles"
+      -
+        permissionKey: "tools:manage_runtime"
+      -
+        permissionKey: "tools:use"
+      -
+        permissionKey: "tools:view_audit"
+    appearance:
+      characterVersion: "cap-v1"
+      paletteId: "deep-tide"
+      schemaVersion: 1
+  docs:
+    role: "general"
+    adapter:
+      config:
+        model: "auto"
+      type: "cursor"
+    runtime:
+      heartbeat:
+        intervalSec: 300
+        maxConcurrentRuns: 1
+        skipTimerWhenNoActionableWork: true
+    permissions:
+      canCreateAgents: true
+      canCreateSkills: true
+    permissionGrants:
+      -
+        permissionKey: "agents:configure"
+      -
+        permissionKey: "agents:suggest-changes"
+      -
+        permissionKey: "audit:view_agent_actions"
+      -
+        permissionKey: "inbox:manage"
+        scope:
+          responsibleUserOnly: true
+      -
+        permissionKey: "skills:create"
+      -
+        permissionKey: "skills:suggest-changes"
+      -
+        permissionKey: "tasks:assign"
+      -
+        permissionKey: "tasks:assign_scope"
+        scope:
+          subtreeRootAgentId: "f403bda3-3b04-49a2-a31a-615a1e4d3d2d"
+      -
+        permissionKey: "tasks:manage_active_checkouts"
+      -
+        permissionKey: "tools:manage_connections"
+      -
+        permissionKey: "tools:manage_profiles"
+      -
+        permissionKey: "tools:manage_runtime"
+      -
+        permissionKey: "tools:use"
+      -
+        permissionKey: "tools:view_audit"
+    appearance:
+      characterVersion: "cap-v1"
+      paletteId: "ultraviolet-tide"
+      schemaVersion: 1
+schemaVersion: 7
+sidebar:
+  agents:
+    - "agent-3"
+    - "aso"
+    - "docs"
+    - "agent-2"
+    - "agent-5"
+    - "agent"
+    - "agent-4"
+    - "agent-6"

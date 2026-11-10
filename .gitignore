@@ -1,0 +1,22 @@
+# Secrets and machine-local files — never commit
+env
+.env
+*.env
+!env.example
+!templates/paperclip.env.example
+!vendor/monitoring-panel/env.example
+*.pem
+*.key
+*.crt
+*.cer
+*.p12
+*.db
+x-ui-credentials.txt
+multilogin-proxy.txt
+multilogin-proxy.meta
+monitoring-panel-initial-password.txt
+**/auth.json
+**/.paperclip/secrets/
+__pycache__/
+*.pyc
+.DS_Store

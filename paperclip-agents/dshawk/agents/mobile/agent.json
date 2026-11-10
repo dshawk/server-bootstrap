@@ -1,0 +1,48 @@
+{
+  "name": "Мобилка",
+  "title": null,
+  "role": "engineer",
+  "sourceAgentId": "f402f898-ea37-4857-966e-4c65a9aff1d4",
+  "urlKey": "f402f898-ea37-4857-966e-4c65a9aff1d4",
+  "packageSlug": "agent-4",
+  "reportsTo": "Тимлид",
+  "reportsToSourceAgentId": "2c8de19b-89b6-4c5b-8e2a-3906ffa269ea",
+  "adapter": {
+    "type": "cursor",
+    "config": {
+      "model": "auto",
+      "paperclipSkillSync": {
+        "desiredSkills": [
+          "${desiredSkills}"
+        ]
+      },
+      "instructionsFilePath": "${instructionsFilePath}",
+      "instructionsRootPath": "${instructionsRootPath}",
+      "instructionsEntryFile": "AGENTS.md",
+      "instructionsBundleMode": "managed"
+    }
+  },
+  "runtime": {
+    "heartbeat": {
+      "enabled": false,
+      "cooldownSec": 10,
+      "intervalSec": 300,
+      "wakeOnDemand": true,
+      "maxConcurrentRuns": 1,
+      "skipTimerWhenNoActionableWork": true
+    }
+  },
+  "permissions": {
+    "canCreateAgents": true,
+    "canCreateSkills": true
+  },
+  "desiredSkills": [
+    "paperclipai/paperclip/paperclip"
+  ],
+  "skillEntries": [
+    {
+      "name": "paperclipai/paperclip/paperclip",
+      "enabled": null
+    }
+  ]
+}

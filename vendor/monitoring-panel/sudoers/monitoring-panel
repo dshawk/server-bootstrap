@@ -1,0 +1,6 @@
+# monpanel may run only the fixed helper actions, no arguments beyond the verb.
+monpanel ALL=(root) NOPASSWD: /opt/monitoring-panel/helper.sh renew-ip
+monpanel ALL=(root) NOPASSWD: /opt/monitoring-panel/helper.sh renew-domains
+monpanel ALL=(root) NOPASSWD: /opt/monitoring-panel/helper.sh restart-xui
+monpanel ALL=(root) NOPASSWD: /opt/monitoring-panel/helper.sh reload-nginx
+monpanel ALL=(root) NOPASSWD: /opt/monitoring-panel/helper.sh cert-status

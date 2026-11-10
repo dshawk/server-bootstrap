@@ -1,0 +1,7 @@
+[Unit]
+Description=Daily TLS certificate expiry check
+
+[Service]
+Type=oneshot
+ExecStart=/opt/monitoring-panel/cert-check.sh
+Nice=10

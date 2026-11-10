@@ -1,0 +1,3 @@
+# The Ubuntu nginx.conf should contain this line in the main context (not inside http {}):
+#   include /etc/nginx/stream-sni.conf;
+# install.sh adds it if missing. Do not let nginx also listen on 443 in http {} — stream owns 443.

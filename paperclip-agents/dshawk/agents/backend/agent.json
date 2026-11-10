@@ -1,0 +1,48 @@
+{
+  "name": "Бэк",
+  "title": null,
+  "role": "engineer",
+  "sourceAgentId": "30c3a777-515b-4846-9440-8f1ac7ac4a3e",
+  "urlKey": "30c3a777-515b-4846-9440-8f1ac7ac4a3e",
+  "packageSlug": "agent",
+  "reportsTo": "Тимлид",
+  "reportsToSourceAgentId": "2c8de19b-89b6-4c5b-8e2a-3906ffa269ea",
+  "adapter": {
+    "type": "cursor",
+    "config": {
+      "model": "auto",
+      "paperclipSkillSync": {
+        "desiredSkills": [
+          "${desiredSkills}"
+        ]
+      },
+      "instructionsFilePath": "${instructionsFilePath}",
+      "instructionsRootPath": "${instructionsRootPath}",
+      "instructionsEntryFile": "AGENTS.md",
+      "instructionsBundleMode": "managed"
+    }
+  },
+  "runtime": {
+    "heartbeat": {
+      "enabled": false,
+      "cooldownSec": 10,
+      "intervalSec": 300,
+      "wakeOnDemand": true,
+      "maxConcurrentRuns": 1,
+      "skipTimerWhenNoActionableWork": true
+    }
+  },
+  "permissions": {
+    "canCreateAgents": true,
+    "canCreateSkills": true
+  },
+  "desiredSkills": [
+    "paperclipai/paperclip/paperclip"
+  ],
+  "skillEntries": [
+    {
+      "name": "paperclipai/paperclip/paperclip",
+      "enabled": null
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+[monitoring-panel]
+enabled = true
+filter = monitoring-panel
+logpath = /var/log/monitoring-panel/auth.log
+backend = polling
+maxretry = 5
+findtime = 10m
+bantime = 1h
+bantime.increment = true
+ignoreip = 127.0.0.1/8 ::1

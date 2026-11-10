@@ -1,0 +1,59 @@
+{
+  "exportedAt": "2026-11-10T08:51:18Z",
+  "apiBase": "http://127.0.0.1:3100",
+  "companies": [
+    {
+      "name": "mobile",
+      "sourceCompanyId": "082c2eb1-fd14-4444-bc4b-7fa744c44543",
+      "agents": [],
+      "importPath": "mobile/package"
+    },
+    {
+      "name": "dshawk",
+      "sourceCompanyId": "399ff2b7-faf5-4ac5-a1de-8ed3bed31db1",
+      "agents": [
+        {
+          "slug": "aso",
+          "name": "aso специалист",
+          "role": "general"
+        },
+        {
+          "slug": "backend",
+          "name": "Бэк",
+          "role": "engineer"
+        },
+        {
+          "slug": "designer",
+          "name": "Дизайнер",
+          "role": "designer"
+        },
+        {
+          "slug": "docs",
+          "name": "Docs",
+          "role": "general"
+        },
+        {
+          "slug": "frontend",
+          "name": "Фронт",
+          "role": "engineer"
+        },
+        {
+          "slug": "master",
+          "name": "Мастер",
+          "role": "ceo"
+        },
+        {
+          "slug": "mobile",
+          "name": "Мобилка",
+          "role": "engineer"
+        },
+        {
+          "slug": "teamlead",
+          "name": "Тимлид",
+          "role": "cto"
+        }
+      ],
+      "importPath": "dshawk/package"
+    }
+  ]
+}

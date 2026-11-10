@@ -1,0 +1,10 @@
+/var/log/monitoring-panel/*.log {
+	su root syslog
+	weekly
+	rotate 4
+	missingok
+	notifempty
+	compress
+	delaycompress
+	copytruncate
+}

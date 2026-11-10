@@ -1,0 +1,13 @@
+/env
+.env
+*.env
+*.log
+__pycache__/
+*.pyc
+*.pyo
+.Python
+*.pem
+*.key
+id_*
+*_deploy
+!*.pub

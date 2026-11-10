@@ -1,0 +1,29 @@
+[Unit]
+Description=Lightweight server monitoring panel
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=monpanel
+Group=monpanel
+Environment=MON_ENV=/etc/monitoring-panel/env
+Environment=MON_AUTH_LOG=/var/log/monitoring-panel/auth.log
+Environment=MON_HELPER=/opt/monitoring-panel/helper.sh
+Environment=PYTHONUNBUFFERED=1
+EnvironmentFile=-/etc/monitoring-panel/env
+WorkingDirectory=/opt/monitoring-panel
+ExecStart=/usr/bin/python3 -u /opt/monitoring-panel/app.py
+Restart=always
+RestartSec=2
+MemoryMax=64M
+PrivateTmp=yes
+ProtectHome=read-only
+ProtectSystem=full
+ReadWritePaths=/etc/monitoring-panel /var/log/monitoring-panel
+NoNewPrivileges=no
+LockPersonality=yes
+RestrictSUIDSGID=yes
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,8 @@
+[Unit]
+Description=Ensure Cloudflare WARP stays in local proxy mode (never full tunnel)
+After=warp-svc.service
+Wants=warp-svc.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/warp-proxy-guard.sh

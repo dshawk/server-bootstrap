@@ -1,0 +1,8 @@
+{
+  "name": "mobile",
+  "sourceCompanyId": "082c2eb1-fd14-4444-bc4b-7fa744c44543",
+  "status": "active",
+  "issuePrefix": "MOB",
+  "description": null,
+  "note": "sourceCompanyId is from the origin server and will change on import."
+}

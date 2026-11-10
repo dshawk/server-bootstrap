@@ -1,0 +1,8 @@
+# Свои домены, которые идут напрямую в профиле WHITELIST.
+# По одному в строке. Поддомены включаются автоматически.
+gnivc.ru
+vkvideo.ru
+ozon.ru
+ozone.ru
+ozonusercontent.com
+ozon.com

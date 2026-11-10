@@ -1,0 +1,11 @@
+[Unit]
+Description=Periodically verify WARP is in proxy mode only
+
+[Timer]
+OnBootSec=30s
+OnUnitActiveSec=5min
+AccuracySec=30s
+Unit=warp-proxy-guard.service
+
+[Install]
+WantedBy=timers.target

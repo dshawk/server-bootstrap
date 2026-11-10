@@ -1,0 +1,48 @@
+{
+  "name": "aso специалист",
+  "title": null,
+  "role": "general",
+  "sourceAgentId": "0854de49-8e3c-4406-bace-908411f79db4",
+  "urlKey": "aso",
+  "packageSlug": "aso",
+  "reportsTo": "Мастер",
+  "reportsToSourceAgentId": "0167be97-41c1-4e81-884f-3c72a422e251",
+  "adapter": {
+    "type": "cursor",
+    "config": {
+      "model": "auto",
+      "paperclipSkillSync": {
+        "desiredSkills": [
+          "${desiredSkills}"
+        ]
+      },
+      "instructionsFilePath": "${instructionsFilePath}",
+      "instructionsRootPath": "${instructionsRootPath}",
+      "instructionsEntryFile": "AGENTS.md",
+      "instructionsBundleMode": "managed"
+    }
+  },
+  "runtime": {
+    "heartbeat": {
+      "enabled": false,
+      "cooldownSec": 10,
+      "intervalSec": 300,
+      "wakeOnDemand": true,
+      "maxConcurrentRuns": 1,
+      "skipTimerWhenNoActionableWork": true
+    }
+  },
+  "permissions": {
+    "canCreateAgents": true,
+    "canCreateSkills": true
+  },
+  "desiredSkills": [
+    "paperclipai/paperclip/paperclip"
+  ],
+  "skillEntries": [
+    {
+      "name": "paperclipai/paperclip/paperclip",
+      "enabled": null
+    }
+  ]
+}
