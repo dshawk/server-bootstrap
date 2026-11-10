@@ -83,25 +83,35 @@
       },
       {
         "type": "field",
-        "user": ["__WARP_USERS__"],
+        "user": [
+          "__WARP_USERS__"
+        ],
         "network": "udp",
         "port": "443",
         "outboundTag": "blocked"
       },
       {
         "type": "field",
-        "user": ["__WARP_USERS__"],
+        "user": [
+          "__WARP_USERS__"
+        ],
         "domain": [
-          "domain:google.com",
-          "domain:googleapis.com",
-          "domain:gstatic.com",
-          "domain:googleusercontent.com",
-          "domain:ggpht.com",
-          "domain:gvt1.com",
-          "domain:ai.google.dev",
-          "domain:labs.google",
-          "domain:deepmind.google",
-          "domain:notebooklm.google"
+          "geosite:google",
+          "domain:recaptcha.net",
+          "domain:doubleclick.net",
+          "domain:gvt2.com",
+          "domain:gvt3.com",
+          "domain:android.com"
+        ],
+        "outboundTag": "warp"
+      },
+      {
+        "type": "field",
+        "user": [
+          "__WARP_USERS__"
+        ],
+        "ip": [
+          "geoip:google"
         ],
         "outboundTag": "warp"
       },
