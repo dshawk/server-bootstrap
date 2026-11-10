@@ -58,6 +58,7 @@ SERVICES = [
     "nginx",
     "paperclip",
     "warp-svc",
+    "warp-proxy-guard.timer",
     "fail2ban",
     "danted",
     "xui-sub-rewrite",
@@ -583,6 +584,44 @@ def live_cert(host: str, port: int, servername: str, timeout: float = 3.0) -> di
 
 def warp_status() -> dict[str, Any]:
     info: dict[str, Any] = {"proxy_port": 40000, "reachable": port_open(40000)}
+    # Only the Mode line — do not keep or return the rest of `warp-cli settings`.
+    try:
+        out = subprocess.check_output(
+            ["warp-cli", "--accept-tos", "settings"],
+            text=True, timeout=5, stderr=subprocess.DEVNULL,
+        )
+        mode = None
+        for line in out.splitlines():
+            if "Mode:" in line:
+                mode = line.split("Mode:", 1)[1].strip()
+                break
+        if mode:
+            info["mode"] = mode
+            info["mode_is_proxy"] = bool(re.search(r"WarpProxy", mode, re.I))
+        else:
+            info["mode_is_proxy"] = False
+    except Exception as e:
+        info["mode_error"] = str(e)[:200]
+        info["mode_is_proxy"] = False
+    try:
+        out = subprocess.check_output(
+            [
+                "systemctl", "show", "warp-proxy-guard.timer",
+                "-p", "ActiveState", "-p", "UnitFileState", "--no-pager",
+            ],
+            text=True, timeout=3, stderr=subprocess.DEVNULL,
+        )
+        props = {}
+        for line in out.splitlines():
+            if "=" in line:
+                k, v = line.split("=", 1)
+                props[k.strip()] = v.strip()
+        if props.get("ActiveState"):
+            info["guard_timer"] = props["ActiveState"]
+        if props.get("UnitFileState"):
+            info["guard_timer_enabled"] = props["UnitFileState"]
+    except Exception as e:
+        info["guard_timer_error"] = str(e)[:160]
     if not info["reachable"]:
         return info
     try:
@@ -599,6 +638,8 @@ def warp_status() -> dict[str, Any]:
                 k, v = line.split("=", 1)
                 if k in ("ip", "loc", "colo", "warp", "http"):
                     info[k] = v
+        if info.get("loc"):
+            info["country"] = info["loc"]
         info["trace_ok"] = True
     except Exception as e:
         info["trace_ok"] = False
@@ -930,9 +971,19 @@ function render(s){
   });
   safe('warp', function(){
     const w = s.warp || {};
+    const svc = s.services || {};
     let html = '<div class="row"><span>Прокси 127.0.0.1:40000</span><span class="'+(w.reachable?'ok':'bad')+'">'+(w.reachable?'доступен':'недоступен')+'</span></div>';
-    if(w.ip){ html += '<div class="row"><span>Выход WARP</span><span>'+esc(w.ip)+' · '+esc(w.loc||'')+' '+esc(w.colo||'')+' · warp='+esc(w.warp||'?')+'</span></div>'; }
-    else if(w.trace_error){ html += '<div class="muted">'+esc(w.trace_error)+'</div>'; }
+    const mode = w.mode || w.mode_error || 'н/д';
+    const modeOk = !!w.mode_is_proxy;
+    html += '<div class="row"><span>Режим</span><span class="'+(modeOk?'ok':'bad')+'">'+esc(mode)+(modeOk?'':' (нужен proxy)')+'</span></div>';
+    const country = w.country || w.loc || '';
+    if(w.ip || country){
+      html += '<div class="row"><span>Страна выхода</span><span>'+esc(country||'н/д')+(w.colo?(' · '+esc(w.colo)):'')+(w.warp?(' · warp='+esc(w.warp)):'')+(w.ip?(' · '+esc(w.ip)):'')+'</span></div>';
+    } else if(w.trace_error){ html += '<div class="muted">'+esc(w.trace_error)+'</div>'; }
+    const gt = w.guard_timer || svc['warp-proxy-guard.timer'] || 'н/д';
+    const ge = w.guard_timer_enabled || '';
+    const gtOk = gt === 'active' && (!ge || ge === 'enabled');
+    html += '<div class="row"><span>warp-proxy-guard.timer</span><span class="'+(gtOk?'ok':'bad')+'">'+esc(gt)+(ge?(' · '+esc(ge)):'')+'</span></div>';
     return html;
   });
   try {
