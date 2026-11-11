@@ -57,7 +57,7 @@ agents:
       config:
         command: "gemini"
         engine: "cli"
-        model: "gemini-2.5-flash-lite"
+        model: "gemini-3.5-flash-lite"
       type: "gemini_local"
     runtime:
       heartbeat:
@@ -119,7 +119,7 @@ agents:
         GEMINI_MODEL:
           description: "Optional default for GEMINI_MODEL on agent agent-2"
           kind: "plain"
-          default: "gemini-2.5-flash-lite"
+          default: "gemini-3.5-flash-lite"
           requirement: "optional"
         HTTP_PROXY:
           description: "Optional default for HTTP_PROXY on agent agent-2"
