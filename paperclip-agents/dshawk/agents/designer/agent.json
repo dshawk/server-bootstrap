@@ -10,7 +10,7 @@
   "adapter": {
     "type": "gemini_local",
     "config": {
-      "model": "gemini-3.5-flash-lite",
+      "model": "gemini-2.5-flash-lite",
       "engine": "cli",
       "command": "gemini",
       "sandbox": false,
