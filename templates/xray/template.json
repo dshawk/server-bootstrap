@@ -51,6 +51,35 @@
           }
         ]
       }
+    },
+    {
+      "tag": "google-egress",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "__GOOGLE_EGRESS_HOST__",
+            "port": 44333,
+            "users": [
+              {
+                "id": "__GOOGLE_EGRESS_UUID__",
+                "encryption": "none",
+                "flow": "xtls-rprx-vision"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "reality",
+        "realitySettings": {
+          "serverName": "www.microsoft.com",
+          "publicKey": "__GOOGLE_EGRESS_REALITY_PUBLIC_KEY__",
+          "shortId": "__GOOGLE_EGRESS_SHORT_ID__",
+          "fingerprint": "chrome"
+        }
+      }
     }
   ],
   "policy": {
@@ -103,7 +132,7 @@
           "domain:gvt3.com",
           "domain:android.com"
         ],
-        "outboundTag": "warp"
+        "outboundTag": "google-egress"
       },
       {
         "type": "field",
@@ -113,7 +142,7 @@
         "ip": [
           "geoip:google"
         ],
-        "outboundTag": "warp"
+        "outboundTag": "google-egress"
       },
       {
         "type": "field",
