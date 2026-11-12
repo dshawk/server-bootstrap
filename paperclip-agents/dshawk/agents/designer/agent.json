@@ -26,19 +26,19 @@
       "env": {
         "NO_PROXY": {
           "type": "plain",
-          "value": "***REDACTED***"
+          "value": "127.0.0.1,localhost,::1"
         },
         "ALL_PROXY": {
           "type": "plain",
-          "value": "***REDACTED***"
+          "value": "socks5h://127.0.0.1:10808"
         },
         "HTTP_PROXY": {
           "type": "plain",
-          "value": "***REDACTED***"
+          "value": "http://127.0.0.1:10809"
         },
         "HTTPS_PROXY": {
           "type": "plain",
-          "value": "***REDACTED***"
+          "value": "http://127.0.0.1:10809"
         },
         "GEMINI_MODEL": {
           "type": "plain",

@@ -23,6 +23,41 @@
       "settings": {
         "address": "127.0.0.1"
       }
+    },
+    {
+      "tag": "google-local-socks",
+      "listen": "127.0.0.1",
+      "port": 10808,
+      "protocol": "socks",
+      "settings": {
+        "auth": "noauth",
+        "udp": false
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ],
+        "routeOnly": true
+      }
+    },
+    {
+      "tag": "google-local-http",
+      "listen": "127.0.0.1",
+      "port": 10809,
+      "protocol": "http",
+      "settings": {
+        "allowTransparent": false
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ],
+        "routeOnly": true
+      }
     }
   ],
   "outbounds": [
@@ -112,18 +147,12 @@
       },
       {
         "type": "field",
-        "user": [
-          "__WARP_USERS__"
-        ],
         "network": "udp",
         "port": "443",
         "outboundTag": "blocked"
       },
       {
         "type": "field",
-        "user": [
-          "__WARP_USERS__"
-        ],
         "domain": [
           "geosite:google",
           "domain:recaptcha.net",
@@ -136,9 +165,6 @@
       },
       {
         "type": "field",
-        "user": [
-          "__WARP_USERS__"
-        ],
         "ip": [
           "geoip:google"
         ],

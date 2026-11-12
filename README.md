@@ -11,10 +11,10 @@
 | `--base` | swap 2 ГБ, fail2ban (jail sshd), logrotate, journald не больше 200 МБ, unattended-upgrades (только security) |
 | `--nginx` | nginx + `libnginx-mod-stream`, webroot ACME на порту 80, stream SNI на 443 |
 | `--warp` | Cloudflare WARP **только** в режиме прокси `127.0.0.1:40000`. Полный туннель запрещён |
-| `--xui` | 3x-ui **2.8.10**, Xray-core **26.6.27**, шаблон маршрутизации (Google → WARP, UDP/443 в blocked) для префиксов клиентов, сертификат Let's Encrypt на IP через acme.sh **webroot**, подписка через nginx :2096 и `xui-sub-rewrite` |
+| `--xui` | 3x-ui **2.8.10**, Xray-core **26.6.27**, шаблон маршрутизации (весь Google → `google-egress`, UDP/443 в blocked для всех клиентов, локальный SOCKS/HTTP 10808/10809), сертификат Let's Encrypt на IP через acme.sh **webroot**, подписка через nginx :2096 и `xui-sub-rewrite` |
 | `--dante` | SOCKS5 на порту 18088, пользователь с паролем, файл `/root/multilogin-proxy.txt` (режим 600) |
 | `--paperclip` | Node 24, пользователь `paperclip`, `paperclipai@2026.1023.0` как systemd-служба, HTTPS-сайт |
-| `--gemini` | `@google/gemini-cli@0.67.0` и обёртка `/usr/local/bin/gemini` через WARP-прокси |
+| `--gemini` | `@google/gemini-cli@0.67.0` и обёртка `/usr/local/bin/gemini` через локальный xray-прокси `127.0.0.1:10809` (Google → `google-egress`) |
 | `--cursor` | Cursor Agent CLI той же сборки, что на текущем сервере, для пользователя `paperclip`, симлинк в `/usr/local/bin` |
 | `--kimi` | Kimi Code CLI для root и `paperclip`, симлинк `/usr/local/bin/kimi` |
 | `--monitoring` | панель из `vendor/monitoring-panel` (или клон `dshawk/monitoring-panel`), случайный пароль, systemd, fail2ban |
@@ -82,10 +82,11 @@ Let's Encrypt profile `shortlived` (~6 дней), acme.sh, webroot `/var/www/htm
 
 ### Маршрутизация xray
 
-В шаблоне исходящее соединение `warp` на `127.0.0.1:40000`. Для email клиентов вида `<префикс>-<суффикс>` (по умолчанию префиксы `home`, `job`, `dshawk`):
+Весь Google-трафик (все VPN-клиенты и процессы на самом сервере) идёт в исходящее соединение `google-egress` (VLESS+Reality на выделенный IPv4-хост). В шаблоне также остаётся исходящее `warp` на `127.0.0.1:40000` как запасной канал, но правила Google в него не отправляют.
 
-- домены Google (кроме общего интернета; YouTube в список не входит) идут в WARP;
-- UDP 443 для этих клиентов блокируется, чтобы браузер ушёл с QUIC на TCP.
+- домены `geosite:google` плюс extras (`recaptcha.net`, `doubleclick.net`, `gvt2.com`, `gvt3.com`, `android.com`) и `geoip:google` — в `google-egress`, без фильтра по пользователям;
+- UDP 443 блокируется для всех клиентов, чтобы браузер ушёл с QUIC на TCP;
+- на loopback: SOCKS `127.0.0.1:10808` и HTTP `127.0.0.1:10809` для Gemini CLI и агента Дизайнер (не-Google с этих портов остаётся direct).
 
 Клиентов скрипт **не создаёт**. Их заводят в панели 3x-ui или переносят из бэкапа базы.
 
@@ -98,7 +99,7 @@ Let's Encrypt profile `shortlived` (~6 дней), acme.sh, webroot `/var/www/htm
 Токенов в репозитории нет, на новом сервере нужно войти заново.
 
 - **Paperclip.** Когда служба поднимется: `sudo -u paperclip -H npx paperclipai@2026.1023.0 auth bootstrap-ceo --api-base http://127.0.0.1:3100`, затем импорт агентов (см. ниже).
-- **Gemini CLI.** `export GEMINI_API_KEY=...` или интерактивный вход. Команда `gemini` уже идёт через WARP-прокси.
+- **Gemini CLI.** `export GEMINI_API_KEY=...` или интерактивный вход. Команда `gemini` уже идёт через локальный xray-прокси `127.0.0.1:10809` (Google → `google-egress`).
 - **Cursor Agent.** `sudo -u paperclip -H cursor-agent login` или переменная `CURSOR_API_KEY`.
 - **Kimi Code.** `kimi` и команда `/login` (OAuth Kimi Code или ключ Moonshot). Для пользователя paperclip: `sudo -u paperclip -H /home/paperclip/.kimi-code/bin/kimi`.
 

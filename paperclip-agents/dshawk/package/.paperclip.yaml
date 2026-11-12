@@ -109,7 +109,7 @@ agents:
         ALL_PROXY:
           description: "Optional default for ALL_PROXY on agent agent-2"
           kind: "plain"
-          default: "socks5h://127.0.0.1:40000"
+          default: "socks5h://127.0.0.1:10808"
           requirement: "optional"
         GEMINI_API_KEY:
           description: "Optional default for GEMINI_API_KEY on agent agent-2"
@@ -124,12 +124,12 @@ agents:
         HTTP_PROXY:
           description: "Optional default for HTTP_PROXY on agent agent-2"
           kind: "plain"
-          default: "http://127.0.0.1:40000"
+          default: "http://127.0.0.1:10809"
           requirement: "optional"
         HTTPS_PROXY:
           description: "Optional default for HTTPS_PROXY on agent agent-2"
           kind: "plain"
-          default: "http://127.0.0.1:40000"
+          default: "http://127.0.0.1:10809"
           requirement: "optional"
         NO_PROXY:
           description: "Optional default for NO_PROXY on agent agent-2"

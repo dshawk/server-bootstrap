@@ -21,7 +21,7 @@ skills:
 - Не вызывай лишние generateContent «на всякий случай».
 
 ## Как создавать картинки
-Используй Gemini Image API через локальный WARP-прокси `http://127.0.0.1:40000`. Ключ в окружении: `$GEMINI_API_KEY`.
+Используй Gemini Image API через локальный xray-прокси `http://127.0.0.1:10809` (выход Google — 13.140.94.101). Ключ в окружении: `$GEMINI_API_KEY`.
 
 Каталог артефактов: `designs/<issue-id-или-короткий-slug>/`
 
@@ -45,7 +45,7 @@ print(json.dumps({
 PY
 
 curl -4 -sS --fail-with-body --max-time 120 \
-  -x http://127.0.0.1:40000 \
+  -x http://127.0.0.1:10809 \
   -H "Content-Type: application/json" \
   -H "x-goog-api-key: ${GEMINI_API_KEY}" \
   --data-binary @/tmp/gemini-image-req.json \
@@ -80,6 +80,6 @@ PY
 После генерации укажи в комментарии к issue путь к PNG. При 402/RESOURCE_EXHAUSTED или ошибке локации — напиши точный текст Мастеру, не выдумывай файл.
 
 ## Чего не делать
-- Не переключай Cloudflare WARP в полный mode `warp` (только proxy `127.0.0.1:40000`).
+- Не переключай Cloudflare WARP в полный mode `warp`. Google/Gemini ходи только через локальный прокси `http://127.0.0.1:10809` (SOCKS `127.0.0.1:10808`), не через WARP `:40000`.
 - Не печатай и не коммить `GEMINI_API_KEY`.
 - Не используй pro / дорогие flash-модели без согласия Никиты.
