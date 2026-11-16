@@ -1,0 +1,53 @@
+{
+  "name": "Тестировщик (Antigravity)",
+  "title": "Тестировщик",
+  "role": "general",
+  "sourceAgentId": "07635dfa-b839-431f-a957-c61a8b9f5790",
+  "urlKey": "antigravity",
+  "packageSlug": "antigravity",
+  "reportsTo": "Тимлид",
+  "reportsToSourceAgentId": "2c8de19b-89b6-4c5b-8e2a-3906ffa269ea",
+  "adapter": {
+    "type": "process",
+    "config": {
+      "cwd": "${cwd}",
+      "args": [],
+      "command": "${command}",
+      "graceSec": 15,
+      "timeoutSec": 1800,
+      "paperclipSkillSync": {
+        "desiredSkills": [
+          "${desiredSkills}"
+        ]
+      },
+      "instructionsFilePath": "${instructionsFilePath}",
+      "instructionsRootPath": "${instructionsRootPath}",
+      "instructionsEntryFile": "AGENTS.md",
+      "instructionsBundleMode": "managed"
+    }
+  },
+  "runtime": {
+    "heartbeat": {
+      "enabled": false,
+      "cooldownSec": 10,
+      "intervalSec": 300,
+      "wakeOnDemand": true,
+      "maxConcurrentRuns": 1,
+      "skipTimerWhenNoActionableWork": true
+    }
+  },
+  "permissions": {
+    "canAssignTasks": true,
+    "canCreateAgents": false,
+    "canCreateSkills": false
+  },
+  "desiredSkills": [
+    "paperclipai/paperclip/paperclip"
+  ],
+  "skillEntries": [
+    {
+      "name": "paperclipai/paperclip/paperclip",
+      "enabled": null
+    }
+  ]
+}

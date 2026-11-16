@@ -13,6 +13,8 @@
       "model": "auto",
       "paperclipSkillSync": {
         "desiredSkills": [
+          "${desiredSkills}",
+          "${desiredSkills}",
           "${desiredSkills}"
         ]
       },
@@ -33,15 +35,26 @@
     }
   },
   "permissions": {
-    "canCreateAgents": true,
-    "canCreateSkills": true
+    "canAssignTasks": true,
+    "canCreateAgents": false,
+    "canCreateSkills": false
   },
   "desiredSkills": [
-    "paperclipai/paperclip/paperclip"
+    "paperclipai/paperclip/paperclip",
+    "github/1372604670/1a87660d963816b0/in-app-ux-copy",
+    "github/1372604670/f128d5dece79d1dc/product-marketing"
   ],
   "skillEntries": [
     {
       "name": "paperclipai/paperclip/paperclip",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/1a87660d963816b0/in-app-ux-copy",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/f128d5dece79d1dc/product-marketing",
       "enabled": null
     }
   ]

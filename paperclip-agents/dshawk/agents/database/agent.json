@@ -1,0 +1,67 @@
+{
+  "name": "База Данных",
+  "title": "Инженер баз данных",
+  "role": "engineer",
+  "sourceAgentId": "34965b16-6a8f-435b-ab45-b83f58246119",
+  "urlKey": "34965b16-6a8f-435b-ab45-b83f58246119",
+  "packageSlug": "agent",
+  "reportsTo": "Тимлид",
+  "reportsToSourceAgentId": "2c8de19b-89b6-4c5b-8e2a-3906ffa269ea",
+  "adapter": {
+    "type": "cursor",
+    "config": {
+      "model": "auto",
+      "paperclipSkillSync": {
+        "desiredSkills": [
+          "${desiredSkills}",
+          "${desiredSkills}",
+          "${desiredSkills}",
+          "${desiredSkills}"
+        ]
+      },
+      "instructionsFilePath": "${instructionsFilePath}",
+      "instructionsRootPath": "${instructionsRootPath}",
+      "instructionsEntryFile": "AGENTS.md",
+      "instructionsBundleMode": "managed"
+    }
+  },
+  "runtime": {
+    "heartbeat": {
+      "enabled": false,
+      "cooldownSec": 10,
+      "intervalSec": 300,
+      "wakeOnDemand": true,
+      "maxConcurrentRuns": 1,
+      "skipTimerWhenNoActionableWork": true
+    }
+  },
+  "permissions": {
+    "canAssignTasks": true,
+    "canCreateAgents": false,
+    "canCreateSkills": false
+  },
+  "desiredSkills": [
+    "paperclipai/paperclip/paperclip",
+    "github/1372604670/7c41de1de92cfd46/leanrea",
+    "github/1135501937/94905137162752e0/supabase-postgres-best-practices",
+    "github/1135501937/acbc589bea6d94a0/supabase"
+  ],
+  "skillEntries": [
+    {
+      "name": "paperclipai/paperclip/paperclip",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/7c41de1de92cfd46/leanrea",
+      "enabled": null
+    },
+    {
+      "name": "github/1135501937/94905137162752e0/supabase-postgres-best-practices",
+      "enabled": null
+    },
+    {
+      "name": "github/1135501937/acbc589bea6d94a0/supabase",
+      "enabled": null
+    }
+  ]
+}

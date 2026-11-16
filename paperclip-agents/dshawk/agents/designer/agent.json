@@ -4,7 +4,7 @@
   "role": "designer",
   "sourceAgentId": "5eaa874c-1d34-4fca-8589-ed79f4b5811f",
   "urlKey": "5eaa874c-1d34-4fca-8589-ed79f4b5811f",
-  "packageSlug": "agent-2",
+  "packageSlug": "agent-3",
   "reportsTo": "Мастер",
   "reportsToSourceAgentId": "0167be97-41c1-4e81-884f-3c72a422e251",
   "adapter": {
@@ -16,6 +16,12 @@
       "sandbox": false,
       "paperclipSkillSync": {
         "desiredSkills": [
+          "${desiredSkills}",
+          "${desiredSkills}",
+          "${desiredSkills}",
+          "${desiredSkills}",
+          "${desiredSkills}",
+          "${desiredSkills}",
           "${desiredSkills}"
         ]
       },
@@ -26,19 +32,19 @@
       "env": {
         "NO_PROXY": {
           "type": "plain",
-          "value": "127.0.0.1,localhost,::1"
+          "value": "***REDACTED***"
         },
         "ALL_PROXY": {
           "type": "plain",
-          "value": "socks5h://127.0.0.1:10808"
+          "value": "***REDACTED***"
         },
         "HTTP_PROXY": {
           "type": "plain",
-          "value": "http://127.0.0.1:10809"
+          "value": "***REDACTED***"
         },
         "HTTPS_PROXY": {
           "type": "plain",
-          "value": "http://127.0.0.1:10809"
+          "value": "***REDACTED***"
         },
         "GEMINI_MODEL": {
           "type": "plain",
@@ -62,15 +68,46 @@
     }
   },
   "permissions": {
-    "canCreateAgents": true,
-    "canCreateSkills": true
+    "canAssignTasks": true,
+    "canCreateAgents": false,
+    "canCreateSkills": false
   },
   "desiredSkills": [
-    "paperclipai/paperclip/paperclip"
+    "paperclipai/paperclip/paperclip",
+    "github/1372604670/db9d49c4058b3924/generate2dsprite",
+    "github/1372604670/def981293662c310/generate2dmap",
+    "github/1372604670/d4d795241cdb88f3/generate2dmedia",
+    "github/1372604670/ae2b908865dc71ea/codeart2d",
+    "github/1372604670/8202aa9257a8d0b8/video2dsprite",
+    "github/1372604670/09598aed7177e667/store-visual-brief"
   ],
   "skillEntries": [
     {
       "name": "paperclipai/paperclip/paperclip",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/db9d49c4058b3924/generate2dsprite",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/def981293662c310/generate2dmap",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/d4d795241cdb88f3/generate2dmedia",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/ae2b908865dc71ea/codeart2d",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/8202aa9257a8d0b8/video2dsprite",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/09598aed7177e667/store-visual-brief",
       "enabled": null
     }
   ]

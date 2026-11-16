@@ -4,7 +4,7 @@
   "role": "cto",
   "sourceAgentId": "2c8de19b-89b6-4c5b-8e2a-3906ffa269ea",
   "urlKey": "2c8de19b-89b6-4c5b-8e2a-3906ffa269ea",
-  "packageSlug": "agent-5",
+  "packageSlug": "agent-6",
   "reportsTo": "Мастер",
   "reportsToSourceAgentId": "0167be97-41c1-4e81-884f-3c72a422e251",
   "adapter": {
@@ -34,8 +34,9 @@
     }
   },
   "permissions": {
-    "canCreateAgents": true,
-    "canCreateSkills": true
+    "canAssignTasks": true,
+    "canCreateAgents": false,
+    "canCreateSkills": false
   },
   "desiredSkills": [
     "paperclipai/paperclip/paperclip",

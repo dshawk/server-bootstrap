@@ -196,6 +196,7 @@ def slugify(name: str, fallback: str) -> str:
         "Бэк": "backend",
         "aso специалист": "aso",
         "Docs": "docs",
+        "База Данных": "database",
     }
     if name in table:
         return table[name]
@@ -416,7 +417,7 @@ for company in companies:
         aj.write_text(json.dumps(rec, ensure_ascii=False, indent=2) + "\n")
         (friendly / s / "AGENTS.md").write_text(id_pat.sub(r"\1\2", sanitize_text(text)), encoding="utf-8")
 
-        index["companies"].append({
+    index["companies"].append({
         "name": cname,
         "sourceCompanyId": cid,
         "agents": [

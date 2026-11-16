@@ -1,17 +1,16 @@
 {
-  "exportedAt": "2026-11-10T08:51:18Z",
+  "exportedAt": "2026-11-16T07:45:29Z",
   "apiBase": "http://127.0.0.1:3100",
   "companies": [
-    {
-      "name": "mobile",
-      "sourceCompanyId": "082c2eb1-fd14-4444-bc4b-7fa744c44543",
-      "agents": [],
-      "importPath": "mobile/package"
-    },
     {
       "name": "dshawk",
       "sourceCompanyId": "399ff2b7-faf5-4ac5-a1de-8ed3bed31db1",
       "agents": [
+        {
+          "slug": "antigravity",
+          "name": "Тестировщик (Antigravity)",
+          "role": "general"
+        },
         {
           "slug": "aso",
           "name": "aso специалист",
@@ -20,6 +19,11 @@
         {
           "slug": "backend",
           "name": "Бэк",
+          "role": "engineer"
+        },
+        {
+          "slug": "database",
+          "name": "База Данных",
           "role": "engineer"
         },
         {
@@ -51,9 +55,20 @@
           "slug": "teamlead",
           "name": "Тимлид",
           "role": "cto"
+        },
+        {
+          "slug": "unity",
+          "name": "Unity",
+          "role": "engineer"
         }
       ],
       "importPath": "dshawk/package"
+    },
+    {
+      "name": "mobile",
+      "sourceCompanyId": "082c2eb1-fd14-4444-bc4b-7fa744c44543",
+      "agents": [],
+      "importPath": "mobile/package"
     }
   ]
 }

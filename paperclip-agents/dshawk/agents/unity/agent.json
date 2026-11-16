@@ -1,0 +1,253 @@
+{
+  "name": "Unity",
+  "title": "Unity-разработчик 2D mobile",
+  "role": "engineer",
+  "sourceAgentId": "7a6eb686-4114-465e-ae95-ea9361637e0f",
+  "urlKey": "unity",
+  "packageSlug": "unity",
+  "reportsTo": "Мастер",
+  "reportsToSourceAgentId": "0167be97-41c1-4e81-884f-3c72a422e251",
+  "adapter": {
+    "type": "cursor",
+    "config": {
+      "model": "auto",
+      "paperclipSkillSync": {
+        "desiredSkills": [
+          "${desiredSkills}",
+          "${desiredSkills}",
+          "${desiredSkills}",
+          "${desiredSkills}",
+          "${desiredSkills}",
+          "${desiredSkills}",
+          "${desiredSkills}",
+          "${desiredSkills}",
+          "${desiredSkills}",
+          "${desiredSkills}",
+          "${desiredSkills}",
+          "${desiredSkills}",
+          "${desiredSkills}",
+          "${desiredSkills}",
+          "${desiredSkills}",
+          "${desiredSkills}",
+          "${desiredSkills}",
+          "${desiredSkills}",
+          "${desiredSkills}",
+          "${desiredSkills}",
+          "${desiredSkills}",
+          "${desiredSkills}",
+          "${desiredSkills}",
+          "${desiredSkills}",
+          "${desiredSkills}",
+          "${desiredSkills}",
+          "${desiredSkills}",
+          "${desiredSkills}",
+          "${desiredSkills}",
+          "${desiredSkills}",
+          "${desiredSkills}",
+          "${desiredSkills}",
+          "${desiredSkills}",
+          "${desiredSkills}",
+          "${desiredSkills}"
+        ]
+      },
+      "instructionsFilePath": "${instructionsFilePath}",
+      "instructionsRootPath": "${instructionsRootPath}",
+      "instructionsEntryFile": "AGENTS.md",
+      "instructionsBundleMode": "managed"
+    }
+  },
+  "runtime": {
+    "heartbeat": {
+      "enabled": false,
+      "cooldownSec": 10,
+      "intervalSec": 300,
+      "wakeOnDemand": true,
+      "maxConcurrentRuns": 1,
+      "skipTimerWhenNoActionableWork": true
+    }
+  },
+  "permissions": {
+    "canAssignTasks": true,
+    "canCreateAgents": false,
+    "canCreateSkills": false
+  },
+  "desiredSkills": [
+    "paperclipai/paperclip/paperclip",
+    "github/1372604670/361db571a34a7d67/2d-pixel-perfect",
+    "github/1372604670/a8945cf91225bceb/asset-transformer-toolkit",
+    "github/1372604670/02daea7da905dbe8/audio-setup-mixers",
+    "github/1372604670/78d2bd25c2ec4787/build-gtk",
+    "github/1372604670/a652577efe2ae988/build-live-game",
+    "github/1372604670/acdb2a42f1313b55/craft-game-floors",
+    "github/1372604670/b8eddb79e89a94e0/create-2d-physics",
+    "github/1372604670/b4de583ea2e3c6c2/create-tile-palette-or-rule-tiles",
+    "github/1372604670/c64088b5ce2e9752/fix-3d-physics-collisions",
+    "github/1372604670/adb23d5445b71f7e/generate-editor-search-query",
+    "github/1372604670/2578e809bf4a4d57/implement-in-app-purchases",
+    "github/1372604670/b52b84ecdb556557/initialize-ai-navigation",
+    "github/1372604670/8d60bf18087fd570/levelplay-unity-integration",
+    "github/1372604670/fd0cbee1bf403e5a/localize-unity-project",
+    "github/1372604670/839dfb0ce1ef31cc/manage-sprite-atlas",
+    "github/1372604670/f78b80cf632a51c4/migrate-birp-to-urp",
+    "github/1372604670/b66312ab46d1ec50/new-unity-project",
+    "github/1372604670/c2eba18a7647e748/optimize-audio",
+    "github/1372604670/3bb45fd04b007c68/optimize-text-mesh-pro",
+    "github/1372604670/365e1a719b7c1ec9/optimize-web",
+    "github/1372604670/ce88d2ba81a494e2/setup-multiplayer-services",
+    "github/1372604670/83388907b1403a57/setup-vivox-voice-chat",
+    "github/1372604670/20886cbe2bcc20cc/shader-graph-create-custom-node",
+    "github/1372604670/dd5fae7c34f40bd7/sprite-editor",
+    "github/1372604670/ce5e2443b24cab7e/sprite-segment-3x3grid",
+    "github/1372604670/e10dad39228e4e64/ui",
+    "github/1372604670/b586fde5270274f7/ui-imgui",
+    "github/1372604670/c11a0cd228340153/ui-ugui",
+    "github/1372604670/6df4b930da0a5ee8/ui-uitk",
+    "github/1372604670/c244e48daa724f49/unity-cli",
+    "github/1372604670/65c39d4711c7ff93/unity-package-management",
+    "github/1372604670/0c30e67bcade58ee/unity-pipeline",
+    "github/1372604670/c3d69e872e0d5269/urp-postprocessing",
+    "github/1372604670/86f4fe271d1de5b0/validate-urp-render-graph-renderer-feature"
+  ],
+  "skillEntries": [
+    {
+      "name": "paperclipai/paperclip/paperclip",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/361db571a34a7d67/2d-pixel-perfect",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/a8945cf91225bceb/asset-transformer-toolkit",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/02daea7da905dbe8/audio-setup-mixers",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/78d2bd25c2ec4787/build-gtk",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/a652577efe2ae988/build-live-game",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/acdb2a42f1313b55/craft-game-floors",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/b8eddb79e89a94e0/create-2d-physics",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/b4de583ea2e3c6c2/create-tile-palette-or-rule-tiles",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/c64088b5ce2e9752/fix-3d-physics-collisions",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/adb23d5445b71f7e/generate-editor-search-query",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/2578e809bf4a4d57/implement-in-app-purchases",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/b52b84ecdb556557/initialize-ai-navigation",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/8d60bf18087fd570/levelplay-unity-integration",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/fd0cbee1bf403e5a/localize-unity-project",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/839dfb0ce1ef31cc/manage-sprite-atlas",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/f78b80cf632a51c4/migrate-birp-to-urp",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/b66312ab46d1ec50/new-unity-project",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/c2eba18a7647e748/optimize-audio",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/3bb45fd04b007c68/optimize-text-mesh-pro",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/365e1a719b7c1ec9/optimize-web",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/ce88d2ba81a494e2/setup-multiplayer-services",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/83388907b1403a57/setup-vivox-voice-chat",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/20886cbe2bcc20cc/shader-graph-create-custom-node",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/dd5fae7c34f40bd7/sprite-editor",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/ce5e2443b24cab7e/sprite-segment-3x3grid",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/e10dad39228e4e64/ui",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/b586fde5270274f7/ui-imgui",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/c11a0cd228340153/ui-ugui",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/6df4b930da0a5ee8/ui-uitk",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/c244e48daa724f49/unity-cli",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/65c39d4711c7ff93/unity-package-management",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/0c30e67bcade58ee/unity-pipeline",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/c3d69e872e0d5269/urp-postprocessing",
+      "enabled": null
+    },
+    {
+      "name": "github/1372604670/86f4fe271d1de5b0/validate-urp-render-graph-renderer-feature",
+      "enabled": null
+    }
+  ]
+}

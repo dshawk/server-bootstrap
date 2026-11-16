@@ -2,6 +2,8 @@ schema: "paperclip/v1"
 agents:
   agent:
     role: "engineer"
+    icon: "database"
+    capabilities: "Schema design, migrations, indexes and query performance, data integrity, backup/restore planning (Postgres, Supabase, SQLite)."
     adapter:
       config:
         model: "auto"
@@ -12,8 +14,57 @@ agents:
         maxConcurrentRuns: 1
         skipTimerWhenNoActionableWork: true
     permissions:
-      canCreateAgents: true
-      canCreateSkills: true
+      canAssignTasks: true
+    permissionGrants:
+      -
+        permissionKey: "agents:configure"
+      -
+        permissionKey: "agents:suggest-changes"
+      -
+        permissionKey: "audit:view_agent_actions"
+      -
+        permissionKey: "inbox:manage"
+        scope:
+          responsibleUserOnly: true
+      -
+        permissionKey: "skills:create"
+      -
+        permissionKey: "skills:suggest-changes"
+      -
+        permissionKey: "tasks:assign"
+      -
+        permissionKey: "tasks:assign_scope"
+        scope:
+          subtreeRootAgentId: "34965b16-6a8f-435b-ab45-b83f58246119"
+      -
+        permissionKey: "tasks:manage_active_checkouts"
+      -
+        permissionKey: "tools:manage_connections"
+      -
+        permissionKey: "tools:manage_profiles"
+      -
+        permissionKey: "tools:manage_runtime"
+      -
+        permissionKey: "tools:use"
+      -
+        permissionKey: "tools:view_audit"
+    appearance:
+      characterVersion: "cap-v1"
+      paletteId: "arctic-blue"
+      schemaVersion: 1
+  agent-2:
+    role: "engineer"
+    adapter:
+      config:
+        model: "auto"
+      type: "cursor"
+    runtime:
+      heartbeat:
+        intervalSec: 300
+        maxConcurrentRuns: 1
+        skipTimerWhenNoActionableWork: true
+    permissions:
+      canAssignTasks: true
     permissionGrants:
       -
         permissionKey: "agents:configure"
@@ -51,7 +102,7 @@ agents:
       characterVersion: "cap-v1"
       paletteId: "flamingo-jade"
       schemaVersion: 1
-  agent-2:
+  agent-3:
     role: "designer"
     adapter:
       config:
@@ -65,8 +116,7 @@ agents:
         maxConcurrentRuns: 1
         skipTimerWhenNoActionableWork: true
     permissions:
-      canCreateAgents: true
-      canCreateSkills: true
+      canAssignTasks: true
     permissionGrants:
       -
         permissionKey: "agents:configure"
@@ -107,36 +157,36 @@ agents:
     inputs:
       env:
         ALL_PROXY:
-          description: "Optional default for ALL_PROXY on agent agent-2"
+          description: "Optional default for ALL_PROXY on agent agent-3"
           kind: "plain"
           default: "socks5h://127.0.0.1:10808"
           requirement: "optional"
         GEMINI_API_KEY:
-          description: "Optional default for GEMINI_API_KEY on agent agent-2"
+          description: "Optional default for GEMINI_API_KEY on agent agent-3"
           kind: "secret"
           default: ""
           requirement: "optional"
         GEMINI_MODEL:
-          description: "Optional default for GEMINI_MODEL on agent agent-2"
+          description: "Optional default for GEMINI_MODEL on agent agent-3"
           kind: "plain"
           default: "gemini-2.5-flash-lite"
           requirement: "optional"
         HTTP_PROXY:
-          description: "Optional default for HTTP_PROXY on agent agent-2"
+          description: "Optional default for HTTP_PROXY on agent agent-3"
           kind: "plain"
           default: "http://127.0.0.1:10809"
           requirement: "optional"
         HTTPS_PROXY:
-          description: "Optional default for HTTPS_PROXY on agent agent-2"
+          description: "Optional default for HTTPS_PROXY on agent agent-3"
           kind: "plain"
           default: "http://127.0.0.1:10809"
           requirement: "optional"
         NO_PROXY:
-          description: "Optional default for NO_PROXY on agent agent-2"
+          description: "Optional default for NO_PROXY on agent agent-3"
           kind: "plain"
           default: "127.0.0.1,localhost,::1"
           requirement: "optional"
-  agent-3:
+  agent-4:
     role: "ceo"
     adapter:
       config:
@@ -187,7 +237,7 @@ agents:
       characterVersion: "cap-v1"
       paletteId: "solar-flare"
       schemaVersion: 1
-  agent-4:
+  agent-5:
     role: "engineer"
     adapter:
       config:
@@ -199,8 +249,7 @@ agents:
         maxConcurrentRuns: 1
         skipTimerWhenNoActionableWork: true
     permissions:
-      canCreateAgents: true
-      canCreateSkills: true
+      canAssignTasks: true
     permissionGrants:
       -
         permissionKey: "agents:configure"
@@ -238,7 +287,7 @@ agents:
       characterVersion: "cap-v1"
       paletteId: "orchid-peach"
       schemaVersion: 1
-  agent-5:
+  agent-6:
     role: "cto"
     adapter:
       config:
@@ -250,8 +299,7 @@ agents:
         maxConcurrentRuns: 1
         skipTimerWhenNoActionableWork: true
     permissions:
-      canCreateAgents: true
-      canCreateSkills: true
+      canAssignTasks: true
     permissionGrants:
       -
         permissionKey: "agents:configure"
@@ -289,7 +337,7 @@ agents:
       characterVersion: "cap-v1"
       paletteId: "flamingo-jade"
       schemaVersion: 1
-  agent-6:
+  agent-7:
     role: "engineer"
     adapter:
       config:
@@ -301,8 +349,7 @@ agents:
         maxConcurrentRuns: 1
         skipTimerWhenNoActionableWork: true
     permissions:
-      canCreateAgents: true
-      canCreateSkills: true
+      canAssignTasks: true
     permissionGrants:
       -
         permissionKey: "agents:configure"
@@ -340,6 +387,58 @@ agents:
       characterVersion: "cap-v1"
       paletteId: "orchid-peach"
       schemaVersion: 1
+  antigravity:
+    role: "general"
+    capabilities: "Проверка результата после ревью Тимлида: сборки/тесты/lint, скриншоты, отчёт pass/fail. Код не исправляет."
+    adapter:
+      config:
+        graceSec: 15
+        timeoutSec: 1800
+      type: "process"
+    runtime:
+      heartbeat:
+        intervalSec: 300
+        maxConcurrentRuns: 1
+        skipTimerWhenNoActionableWork: true
+    permissions:
+      canAssignTasks: true
+    permissionGrants:
+      -
+        permissionKey: "agents:configure"
+      -
+        permissionKey: "agents:suggest-changes"
+      -
+        permissionKey: "audit:view_agent_actions"
+      -
+        permissionKey: "inbox:manage"
+        scope:
+          responsibleUserOnly: true
+      -
+        permissionKey: "skills:create"
+      -
+        permissionKey: "skills:suggest-changes"
+      -
+        permissionKey: "tasks:assign"
+      -
+        permissionKey: "tasks:assign_scope"
+        scope:
+          subtreeRootAgentId: "07635dfa-b839-431f-a957-c61a8b9f5790"
+      -
+        permissionKey: "tasks:manage_active_checkouts"
+      -
+        permissionKey: "tools:manage_connections"
+      -
+        permissionKey: "tools:manage_profiles"
+      -
+        permissionKey: "tools:manage_runtime"
+      -
+        permissionKey: "tools:use"
+      -
+        permissionKey: "tools:view_audit"
+    appearance:
+      characterVersion: "cap-v1"
+      paletteId: "violet-ember"
+      schemaVersion: 1
   aso:
     role: "general"
     adapter:
@@ -352,8 +451,7 @@ agents:
         maxConcurrentRuns: 1
         skipTimerWhenNoActionableWork: true
     permissions:
-      canCreateAgents: true
-      canCreateSkills: true
+      canAssignTasks: true
     permissionGrants:
       -
         permissionKey: "agents:configure"
@@ -403,8 +501,7 @@ agents:
         maxConcurrentRuns: 1
         skipTimerWhenNoActionableWork: true
     permissions:
-      canCreateAgents: true
-      canCreateSkills: true
+      canAssignTasks: true
     permissionGrants:
       -
         permissionKey: "agents:configure"
@@ -442,14 +539,69 @@ agents:
       characterVersion: "cap-v1"
       paletteId: "ultraviolet-tide"
       schemaVersion: 1
+  unity:
+    role: "engineer"
+    icon: "sparkles"
+    capabilities: "Unity game developer for Spark of Prometheus / PrometheusSparkUnity and cats_game, 2D mobile"
+    adapter:
+      config:
+        model: "auto"
+      type: "cursor"
+    runtime:
+      heartbeat:
+        intervalSec: 300
+        maxConcurrentRuns: 1
+        skipTimerWhenNoActionableWork: true
+    permissions:
+      canAssignTasks: true
+    permissionGrants:
+      -
+        permissionKey: "agents:configure"
+      -
+        permissionKey: "agents:suggest-changes"
+      -
+        permissionKey: "audit:view_agent_actions"
+      -
+        permissionKey: "inbox:manage"
+        scope:
+          responsibleUserOnly: true
+      -
+        permissionKey: "skills:create"
+      -
+        permissionKey: "skills:suggest-changes"
+      -
+        permissionKey: "tasks:assign"
+      -
+        permissionKey: "tasks:assign_scope"
+        scope:
+          subtreeRootAgentId: "7a6eb686-4114-465e-ae95-ea9361637e0f"
+      -
+        permissionKey: "tasks:manage_active_checkouts"
+      -
+        permissionKey: "tools:manage_connections"
+      -
+        permissionKey: "tools:manage_profiles"
+      -
+        permissionKey: "tools:manage_runtime"
+      -
+        permissionKey: "tools:use"
+      -
+        permissionKey: "tools:view_audit"
+    appearance:
+      characterVersion: "cap-v1"
+      paletteId: "electric-grove"
+      schemaVersion: 1
 schemaVersion: 7
 sidebar:
   agents:
-    - "agent-3"
+    - "agent-4"
     - "aso"
     - "docs"
+    - "unity"
+    - "agent-3"
+    - "agent-6"
+    - "agent"
     - "agent-2"
     - "agent-5"
-    - "agent"
-    - "agent-4"
-    - "agent-6"
+    - "antigravity"
+    - "agent-7"
