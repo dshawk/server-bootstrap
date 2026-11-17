@@ -90,6 +90,8 @@ Let's Encrypt profile `shortlived` (~6 дней), acme.sh, webroot `/var/www/htm
 
 Клиентов скрипт **не создаёт**. Их заводят в панели 3x-ui или переносят из бэкапа базы.
 
+Ротация egress-хоста (когда Google «перекрасит» его IP): `templates/xray/google-egress.md`, скрипты `scripts/check-google-ip.sh` и `scripts/setup-google-egress.sh`.
+
 ### WARP
 
 Только `warp-cli --accept-tos mode proxy` и порт 40000. **Никогда не выполняйте `warp-cli mode warp`**: полный туннель перехватит маршрут по умолчанию и оборвёт VPN, панель, nginx и SSH. Таймер `warp-proxy-guard` раз в 5 минут возвращает режим прокси, если его сняли.
@@ -150,6 +152,8 @@ sudo -u paperclip -H ./scripts/import-paperclip-agents.sh dshawk --target new --
 | `scripts/export-paperclip-agents.sh` | снимок агентов в `paperclip-agents/` |
 | `scripts/import-paperclip-agents.sh` | импорт снимка через CLI Paperclip |
 | `scripts/patch-paperclip-feedback-skills.sh` | снова выставить `PAPERCLIP_FEEDBACK_SKILL_KEYS=[]` |
+| `scripts/check-google-ip.sh` | проверка IP нового egress-сервера (регион Google, блок Gemini/AI Studio) до настройки |
+| `scripts/setup-google-egress.sh` | установка xray-egress на новый сервер (секреты через env) |
 
 ## Безопасность
 
