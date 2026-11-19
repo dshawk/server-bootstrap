@@ -9,7 +9,7 @@ tmp=$(mktemp)
 warn=0
 check() {
   local name="$1" path="$2" host="$3" port="$4" sni="$5"
-  local out hours raw
+  local hours raw
   if [ -n "$path" ] && [ -f "$path" ]; then
     raw=$(openssl x509 -in "$path" -noout -enddate 2>/dev/null | cut -d= -f2)
   else
@@ -20,7 +20,7 @@ check() {
     warn=1
     return
   fi
-  local exp epoch now
+  local exp now
   exp=$(date -u -d "$raw" +%s 2>/dev/null || true)
   now=$(date -u +%s)
   if [ -z "$exp" ]; then
